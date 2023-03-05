@@ -121,12 +121,15 @@ public class Menu {
 				DaoTask.addTask(taskID, taskTitle, taskText, assignedTo);
 				
 			case 2://update the task
+				System.out.println("please provide taskId");
+				taskID = sc.next();
+				
 				break;
 				
 			case 3://delete the task
 				System.out.println("please provide taskId");
 				taskID = sc.next();
-				
+				daotask.deleteTask(taskID);
 				
 				break;
 				

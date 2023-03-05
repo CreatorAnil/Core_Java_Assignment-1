@@ -45,7 +45,18 @@ public class TaskDatabase {
 		
 	}
 	
-	public static void updateTask() {
+	public static Task updateTask(String taskID, String taskTitle, String taskText, String assignedTo,boolean taskCompleted) {
+		for(Task t:tasks) {
+			if(t.getTaskID().equals(taskID)) {
+				t.setTaskTitle(taskTitle);
+				t.setTaskText(taskText);
+				t.setAssignedTo(assignedTo);
+				t.setTaskCompleted(taskCompleted);
+				return t;
+			}
+			
+		}
+		return null;
 		
 	}
 	

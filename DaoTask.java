@@ -37,6 +37,11 @@ public class DaoTask {
 		System.out.println("successfully add new task");
 	}
 	
+	public void updateTask(String taskID, String taskTitle, String taskText, String assignedTo,boolean taskCompleted) {
+		TaskDatabase.updateTask(taskID, taskTitle, taskText, assignedTo, taskCompleted);
+		System.out.println("task is updated");
+	}
+	
 	public void deleteTask(String taskID) {
 		if(TaskDatabase.deleteTask(taskID)==null) {
 			System.out.println(taskID+" is not present in our system");
