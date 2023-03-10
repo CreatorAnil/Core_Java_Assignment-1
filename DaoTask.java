@@ -31,18 +31,18 @@ public class DaoTask {
 		return this.taskDatabase.getInCompleteTask();
 	}
 	
-	public static void addTask(String taskID, String taskTitle, String taskText, String assignedTo) {
+	public static void addTask(int taskID, String taskTitle, String taskText, String assignedTo) {
 		TaskDatabase.addTask(taskID, taskTitle, taskText, assignedTo);
 		System.out.println("successfully add new task");
 	}
 	
-	public static Task updateTask(String taskID, String taskTitle, String taskText, String assignedTo,boolean taskCompleted) {
+	public static Task updateTask(int taskID, String taskTitle, String taskText, String assignedTo,boolean taskCompleted) {
 		System.out.println("task is updated");
 		return TaskDatabase.updateTask(taskID, taskTitle, taskText, assignedTo, taskCompleted);
 		
 	}
 	
-	public void deleteTask(String taskID) {
+	public void deleteTask(int taskID) {
 		if(TaskDatabase.deleteTask(taskID)==null) {
 			System.out.println(taskID+" is not present in our system");
 		}
@@ -52,12 +52,12 @@ public class DaoTask {
 		}
 	}
 	
-	public String searchTask(String taskID) {
+	public String searchTask(int taskID) {
 		if(TaskDatabase.searchTask(taskID)==null) {
 			System.out.println(taskID+" is not present in our system");
 		}
 		else {
-			System.out.println(TaskDatabase.searchTask(taskID).toString());
+			System.out.println(TaskDatabase.searchTask(taskID));
 		}
 		return null;		
 	}

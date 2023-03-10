@@ -1,13 +1,13 @@
 package todomanager3;
 
 public class Task {
-	private String taskID;
+	private int taskID;
 	private String taskTitle;
 	private String taskText;
 	private String assignedTo;
 	private boolean taskCompleted;
 	
-	public Task(String taskID, String taskTitle, String taskText, String assignedTo) {
+	public Task(int taskID, String taskTitle, String taskText, String assignedTo) {
 		super();
 		this.taskID = taskID;
 		this.taskTitle = taskTitle;
@@ -16,11 +16,11 @@ public class Task {
 		this.taskCompleted = false;
 	}
 
-	public String getTaskID() {
+	public int getTaskID() {
 		return taskID;
 	}
 
-	public void setTaskID(String taskID) {
+	public void setTaskID(int taskID) {
 		this.taskID = taskID;
 	}
 
@@ -54,6 +54,12 @@ public class Task {
 
 	public void setTaskCompleted(boolean taskCompleted) {
 		this.taskCompleted = taskCompleted;
+	}
+
+	@Override
+	public String toString() {
+		return "Task [taskID=" + taskID + ", taskTitle=" + taskTitle + ", taskText=" + taskText + ", assignedTo="
+				+ assignedTo + ", taskCompleted=" + taskCompleted + "]";
 	}
 	
 	

@@ -31,6 +31,7 @@ public class Menu {
 		int choice;
 		boolean flag = true;
 		do {
+			System.out.println("Choose one of the options");
 			System.out.println("0. exit");
 			System.out.println("1. Login");
 			choice = sc.nextInt();
@@ -91,7 +92,7 @@ public class Menu {
 				break;
 				
 			case 3:System.out.println("adming has successful logout");
-			flag = true;
+			flag = false;
 				break;
 				
 			default:
@@ -109,44 +110,59 @@ public class Menu {
 			int choice = sc.nextInt();
 			switch(choice) {
 			case 1: //add the task
-				System.out.println("please enter taskId");
-				String taskID = sc.next();
-				System.out.println("please enter taskTitle");
-				String taskTitle =sc.next();
-				System.out.println("please enter taskText");
-				String taskText =sc.next();
-				sc.useDelimiter("\r?\n");
-				System.out.println("please enter assignedTo");
-				String assignedTo =sc.next();
-				DaoTask.addTask(taskID, taskTitle, taskText, assignedTo);
+				try {
+					System.out.println("please enter taskId");
+					int taskID = sc.nextInt();
+					System.out.println("please enter taskTitle");
+					String taskTitle =sc.next();
+					System.out.println("please enter taskText");
+					String taskText =sc.next();
+					System.out.println("please enter assignedTo");
+					String assignedTo =sc.next();
+					
+					DaoTask.addTask(taskID, taskTitle, taskText, assignedTo);
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				
 				break;
 				
 			case 2://update the task
+				try {
 				System.out.println("please enter taskId");
-				 taskID= sc.next();
+				int taskID= sc.nextInt();
 				System.out.println("please enter taskTitle");
-				 taskTitle=sc.next();
+				String taskTitle=sc.next();
 				System.out.println("please enter taskText");
-				 taskText=sc.nextLine();
+				String taskText=sc.next();
 				System.out.println("please enter assignedTo");
-				 assignedTo=sc.next();
+				String assignedTo=sc.next();
 				System.out.println("please enter taskCompleted");
 				boolean taskCompleted=sc.nextBoolean();
 				DaoTask.updateTask(taskID, taskTitle, taskText, assignedTo, taskCompleted);
-				
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
 				break;
 				
 			case 3://delete the task
+				try {
 				System.out.println("please provide taskId");
-				 taskID = sc.next();
+				int taskID = sc.nextInt();
 				daotask.deleteTask(taskID);
-				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 				break;
 				
 			case 4://search the task
+				try {
 				System.out.println("please provide taskId");
-				 taskID = sc.next();
+				int taskID = sc.nextInt();
 				daotask.searchTask(taskID);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 				break;
 				
 			case 5://see all the task

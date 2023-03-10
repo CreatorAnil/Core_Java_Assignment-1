@@ -34,7 +34,7 @@ public class TaskDatabase {
 		return temp;
 	}
 	
-	public static void addTask(String taskID, String taskTitle, String taskText, String assignedTo) {
+	public static void addTask(int taskID, String taskTitle, String taskText, String assignedTo) {
 		Task t = new Task(taskID,taskTitle,taskText,assignedTo);
 		try {
 			tasks.add(t);
@@ -45,9 +45,9 @@ public class TaskDatabase {
 		
 	}
 	
-	public static Task updateTask(String taskID, String taskTitle, String taskText, String assignedTo,boolean taskCompleted) {
+	public static Task updateTask(int taskID, String taskTitle, String taskText, String assignedTo,boolean taskCompleted) {
 		for(Task t:tasks) {
-			if(t.getTaskID().equals(taskID)) {
+			if(t.getTaskID()==taskID) {
 				t.setTaskTitle(taskTitle);
 				t.setTaskText(taskText);
 				t.setAssignedTo(assignedTo);
@@ -60,21 +60,21 @@ public class TaskDatabase {
 		
 	}
 	
-	public static String deleteTask(String taskID) {
+	public static String deleteTask(int taskID) {
 		for(Task t:tasks) {
-			if(t.getTaskID().equals(taskID)) {
+			if(t.getTaskID() == taskID) {
 				tasks.remove(t);
-				return  t.toString();
+				return "task is succefully removed";
 			}
 		}
 		return null;
 		
 	}
 	
-	public static Task searchTask(String taskID) {
+	public static String searchTask(int taskID) {
 		for(Task t:tasks) {
-			if(t.getTaskID().equals(taskID)) {
-				return t;
+			if(t.getTaskID() == taskID) {
+				return t.toString();
 			}
 		}
 		return null;
