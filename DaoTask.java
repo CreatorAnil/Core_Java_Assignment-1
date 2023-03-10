@@ -1,5 +1,4 @@
 package todomanager3;
-
 import java.util.List;
 
 
@@ -37,9 +36,10 @@ public class DaoTask {
 		System.out.println("successfully add new task");
 	}
 	
-	public void updateTask(String taskID, String taskTitle, String taskText, String assignedTo,boolean taskCompleted) {
-		TaskDatabase.updateTask(taskID, taskTitle, taskText, assignedTo, taskCompleted);
+	public static Task updateTask(String taskID, String taskTitle, String taskText, String assignedTo,boolean taskCompleted) {
 		System.out.println("task is updated");
+		return TaskDatabase.updateTask(taskID, taskTitle, taskText, assignedTo, taskCompleted);
+		
 	}
 	
 	public void deleteTask(String taskID) {
@@ -52,14 +52,13 @@ public class DaoTask {
 		}
 	}
 	
-	public void searchTask(String taskID) {
+	public String searchTask(String taskID) {
 		if(TaskDatabase.searchTask(taskID)==null) {
 			System.out.println(taskID+" is not present in our system");
 		}
 		else {
-			System.out.println("found the "+taskID);
-			TaskDatabase.searchTask(taskID);
+			System.out.println(TaskDatabase.searchTask(taskID).toString());
 		}
-		
+		return null;		
 	}
 }

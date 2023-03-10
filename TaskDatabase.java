@@ -64,7 +64,7 @@ public class TaskDatabase {
 		for(Task t:tasks) {
 			if(t.getTaskID().equals(taskID)) {
 				tasks.remove(t);
-				return taskID;
+				return  t.toString();
 			}
 		}
 		return null;

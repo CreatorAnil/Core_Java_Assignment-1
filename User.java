@@ -1,15 +1,20 @@
 package todomanager3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 	private String userName;
 	private String email;
 	private String password;
+	private List<Task> taskList;
 	
 	public User(String userName, String email, String password) {
 		super();
 		this.userName = userName;
 		this.email = email;
 		this.password = password;
+		this.taskList = new ArrayList<>();
 	}
 
 	public String getUserName() {
@@ -40,6 +45,6 @@ public class User {
 	public String toString() {
 		return "User [userName=" + userName + ", email=" + email + ", password=" + password + "]";
 	}
-
+	
 
 }

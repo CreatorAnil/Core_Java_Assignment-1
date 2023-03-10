@@ -58,7 +58,7 @@ public class Menu {
 				}
 			
 			
-			default : System.out.println("please provide valid option ");
+			default : System.out.println("Invalid user");
 			}
 		}while(flag);
 		
@@ -109,33 +109,43 @@ public class Menu {
 			int choice = sc.nextInt();
 			switch(choice) {
 			case 1: //add the task
-				String taskID, taskTitle, taskText, assignedTo;
 				System.out.println("please enter taskId");
-				taskID= sc.next();
+				String taskID = sc.next();
 				System.out.println("please enter taskTitle");
-				taskTitle=sc.next();
+				String taskTitle =sc.next();
 				System.out.println("please enter taskText");
-				taskText=sc.next();
+				String taskText =sc.next();
+				sc.useDelimiter("\r?\n");
 				System.out.println("please enter assignedTo");
-				assignedTo=sc.next();
+				String assignedTo =sc.next();
 				DaoTask.addTask(taskID, taskTitle, taskText, assignedTo);
+				break;
 				
 			case 2://update the task
-				System.out.println("please provide taskId");
-				taskID = sc.next();
+				System.out.println("please enter taskId");
+				 taskID= sc.next();
+				System.out.println("please enter taskTitle");
+				 taskTitle=sc.next();
+				System.out.println("please enter taskText");
+				 taskText=sc.nextLine();
+				System.out.println("please enter assignedTo");
+				 assignedTo=sc.next();
+				System.out.println("please enter taskCompleted");
+				boolean taskCompleted=sc.nextBoolean();
+				DaoTask.updateTask(taskID, taskTitle, taskText, assignedTo, taskCompleted);
 				
 				break;
 				
 			case 3://delete the task
 				System.out.println("please provide taskId");
-				taskID = sc.next();
+				 taskID = sc.next();
 				daotask.deleteTask(taskID);
 				
 				break;
 				
 			case 4://search the task
 				System.out.println("please provide taskId");
-				taskID = sc.next();
+				 taskID = sc.next();
 				daotask.searchTask(taskID);
 				break;
 				
@@ -144,7 +154,7 @@ public class Menu {
 					daotask.getAllTask();
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					e.printStackTrace();;
 				}
 				break;
 				
